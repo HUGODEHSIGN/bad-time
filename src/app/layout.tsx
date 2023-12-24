@@ -3,6 +3,7 @@ import { Manrope as FontSans } from "next/font/google";
 import "./globals.css";
 
 import { cn } from "../lib/utils";
+import Navbar from "@/components/custom/Navbar";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -26,7 +27,7 @@ export default function RootLayout({
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable
         )}>
-        {children}
+        <Navbar>{children}</Navbar>
       </body>
     </html>
   );
