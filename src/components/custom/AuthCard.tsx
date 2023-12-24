@@ -27,6 +27,7 @@ import {
 import { Input } from "@/components/ui/input";
 
 import * as z from "zod";
+import { useAuth } from "@/app/hooks/useAuth";
 
 const formSchema = z.object({
   username: z
@@ -35,7 +36,7 @@ const formSchema = z.object({
       message: "Username must be at least 2 characters.",
     })
     .max(20, {
-      message: "Username can't be more than 2 characters.",
+      message: "Username can't be more than 20 characters.",
     }),
 });
 
@@ -51,6 +52,7 @@ export default function AuthCard() {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
+    useAuth(values.username);
   }
   return (
     <Card>
