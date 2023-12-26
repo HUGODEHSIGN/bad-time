@@ -11,7 +11,6 @@ export function useAuth(username: string) {
       const currentUid = auth.currentUser?.uid;
       setDoc(doc(db, "users", `${currentUid}`), {
         currentCourt: "",
-        invite: "",
         username,
       });
     })
